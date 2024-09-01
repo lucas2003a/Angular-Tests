@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-TEST-0.5_Pipes';
+
+  today : number = Date.now();
+
+  currency: number = 1.3465;
 }
