@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <div class="container">
+      <h1>Formularios</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <form action="" method="POST" [formGroup]="LoginForm" (submit)="OnSubmit()">
+            <legend>Registrar usuarios</legend>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" name="email" formControlName="email" class="form-control" id="email"
+                placeholder="Email" required>
+
+              <!--
+                LoginForm['controls']['email'].dirty  => Accede al control email de LoginForm
+                .dirty                                => Es una propiedad del control del formulario, evalúa si el usuario ha tenido interacción con el control
+                .errors                               => Es una propiedad del control del formulario, evalúa si en el controle existe un error
+
+                La condición sería "Si el usuario ha tenido interacción con el control email y si el control email contiene errores ..."
+              -->
+              <div *ngIf="LoginForm['controls']['email'].dirty && LoginForm['controls']['email'].errors">
+
+                <!-- Si es required -->
+                <small *ngIf="LoginForm['controls']['email'].errors['required']" class="text-danger">El email es
+                  necesario</small>
+
+                <!-- Si el formato es incorrecto -->
+                <small *ngIf="LoginForm['controls']['email'].errors['email']" class="text-danger">El campo debe ser un
+                  correo valido</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" class="form-control" formControlName="password"
+                placeholder="Password" required>
+
+              <div *ngIf="LoginForm['controls']['password'].dirty && LoginForm['controls']['password'].errors">
+                <small *ngIf="LoginForm['controls']['password'].errors['required']" class="text-danger">La contraseña es
+                  necesaria</small>
+              </div>
+            </div>
+            <div class="m-2">
+              <button type="submit" class="btn btn-primary" [disabled]="LoginForm.invalid">Registrar</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="table-responsive">
+            <caption>Lista de estudiantes</caption>
+            <table class="table table-light">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Contraseña</th>
+                  <th scope="col">Operaciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="" *ngFor="let student of students; let index = index">
+                  <td scope="row">{{ index + 1 }}</td>
+                  <td>{{ student.email }}</td>
+                  <td>{{ student.password }}</td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="DeleteStudent(index)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="alert alert-danger" role="alert" *ngIf="students.length == 0">
+              <p><strong>No hay registros</strong></p>
+              <hr />
+              <p class="mb-0">No se han podido encontrar registros</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
