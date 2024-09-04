@@ -17,7 +17,7 @@
     <!-- place navbar here -->
   </header>
   <main>
-    <ul>
+    <!-- <ul>
       <caption>List of posts</caption>
       <li *ngFor="let post of posts">
         <h2>Title: {{post.title}}</h2>
@@ -26,7 +26,134 @@
         <p>User post: {{post.id}}</p>
         <hr>
       </li>
-    </ul>
+    </ul> -->
+    <section>
+      <div class="container mt-4">
+
+        <h1>Lista de lenguajes</h1>
+        <button class="mb-4"(click)="CargarLenguajes()">Cargar Lenguajes</button>
+        <div class="row" *ngIf="LenguajesCargados">
+          <div class="col-md-6 mb-2" *ngFor="let lenguaje of lenguajes">
+            <div class="card" style="height: 100%;">
+              <div class="card-header">
+                <strong>{{ lenguaje.nombre }}</strong>
+              </div>
+              <div class="card-body">
+                  <p class="card-text"><strong>ID: </strong>{{ lenguaje.id }}</p>
+                  <p class="card-text"><strong>Paradigma: </strong>{{ lenguaje.paradigma }}</p>
+                  <p class="card-text"><strong>Dificultad: </strong>{{ lenguaje.dificultad }}</p>
+                  <code *ngFor="let caracteristica of lenguaje.caracteristicas">
+                    {{ caracteristica}} <br>
+                  </code>
+                  <p class="card-text"><strong>Popularidad: </strong>{{ lenguaje.popularidad }}</p>
+                  <p class="card-text"><strong>Versiones: </strong>{{ lenguaje.versiones }}</p>
+                  <p class="card-text"><strong>Activo: </strong>{{ lenguaje.activo ? 'Si' : 'No' }}</p>
+
+                </div>
+                <div class="card-footer text-muted">
+                  <p class="card-text"><strong>Alternativas: </strong></p>
+                  <div *ngIf="lenguaje.alternativas">
+                    <div *ngFor="let alternativa of lenguaje.alternativas; let i = index">
+                      <code>
+                        {{ i + 1 }} <br>
+                        Nombre: {{ alternativa.nombre }} <br>
+                        Popularidad: {{ alternativa.popularidad }} <br>
+                      </code>
+                    </div>
+                  </div>
+                  <div *ngIf="!lenguaje.alternativas">
+                    <p class="card-text">No hay alternativas</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h1>Lista de cursos</h1>
+        <button class="mb-4" (click)="CargarCursos()">Cargar Cursos</button>
+        <div class="row" *ngIf="CursosCargados">
+          <div class="col-md-6 mb-2" *ngFor="let curso of cursos">
+            <div class="card" style="height: 100%;">
+              <div class="card-header">{{ curso.nombre }}</div>
+              <div class="card-body">
+                <p><strong>ID: </strong>{{ curso.id }}</p>
+                <p><strong>Lenguaje: </strong>{{ curso.lenguaje }}</p>
+                <p><strong>Duración: </strong>{{ curso.duracion }}</p>
+                <p><strong>Nivel: </strong>{{ curso.nivel }}</p>
+                <hr>
+                <p><strong>Profesor </strong></p>
+                <p><strong>Nombre: </strong>{{ curso.profesor.nombre }}</p>
+                <p><strong>Experiencia: </strong>{{ curso.profesor.experiencia }}</p>
+                <p><strong>Habilidades: </strong></p>
+                <ul *ngFor="let habilidad of curso.profesor.habilidades">
+                  <li>{{ habilidad.habilidad }}</li>
+                  <li>{{ habilidad.nivel }}</li>
+                </ul>
+              </div>
+              <div class="card-footer text-muted">
+
+                <p><strong>Recursos: </strong></p>
+                <ul>
+                  <li *ngFor="let recurso of curso.recursos">{{ recurso }}</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h1>Lista de estudiantes</h1>
+        <button (click)="CargarEstudiantes()" class="mb-4">Cargar estudiantes</button>
+        <div class="row" *ngIf="EstudiantesCargados">
+          <div class="col-md-6 mb-4" *ngFor="let estudiante of estudiantes">
+            <div class="card"  style="height: 100%;">
+              <div class="card-header">
+                <strong>Id del estudiante : {{ estudiante.id }}</strong>
+              </div>
+              <div class="card-body">
+                <p><strong>Nombre: </strong>{{ estudiante.nombre }}</p>
+                <p><strong>Edad: </strong>{{ estudiante.edad }}</p>
+                <p><strong>Cursos Inscritos: </strong></p>
+                <ul>
+                  <li *ngFor="let cursoInscrito of estudiante.cursosInscritos"><strong>ID: </strong>{{ cursoInscrito }}</li>
+                </ul>
+              </div>
+              <div class="card-footer text-muted">
+                <p><strong>Calificaciones</strong></p>
+                <div *ngFor="let calificacion of estudiante.calificaciones | keyvalue">
+                  <ul>
+                    <li>
+                      <strong>ID Curso: </strong>{{ calificacion.key }}
+                      <ul>
+                        <li><strong>Nota: </strong>{{ calificacion.value }}</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <p><strong>Desempeño</strong></p>
+                <ul *ngFor="let desempeno of estudiante.desempeno">
+                  <li>
+                    <strong>Curso: {{ desempeno.cursoId }}</strong>
+                    <ul>
+                      <li><strong>Notas: </strong>{{ desempeno.nota }}</li>
+                      <li><strong>Asistencias: </strong>{{ desempeno.asistencias }}</li>
+                      <li><strong>Completado : </strong>{{ desempeno.completado ? 'Si' : 'No' }}</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer>
     <!-- place footer here -->
@@ -42,3 +169,5 @@
 </body>
 
 </html>
+
+<!-- Como ves al lado izquierdo, se encuentran todas mis carpetas donde he realizado varios tests y estan en github -->

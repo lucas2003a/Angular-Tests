@@ -1,0 +1,242 @@
+{
+    "lenguajes": [
+      {
+        "id": 1,
+        "nombre": "JavaScript",
+        "paradigma": "Multiparadigma",
+        "dificultad": "Intermedio",
+        "caracteristicas": [
+          "Orientado a eventos",
+          "Funcional",
+          "Prototipado"
+        ],
+        "popularidad": 8.7,
+        "versiones": [2021.1, 2021.2, 2022.1],
+        "activo": true
+      },
+      {
+        "id": 2,
+        "nombre": "Python",
+        "paradigma": "Multiparadigma",
+        "dificultad": "Fácil",
+        "caracteristicas": [
+          "Lectura clara",
+          "Sintaxis simple",
+          "Extensible"
+        ],
+        "popularidad": 9.1,
+        "versiones": [3.8, 3.9, 3.10],
+        "activo": true,
+        "alternativas": [
+          {
+            "nombre": "R",
+            "popularidad": 7.8
+          },
+          {
+            "nombre": "Julia",
+            "popularidad": 7.5
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "nombre": "Java",
+        "paradigma": "Orientado a objetos",
+        "dificultad": "Intermedio",
+        "caracteristicas": [
+          "Portabilidad",
+          "Fuerte tipado",
+          "Seguridad"
+        ],
+        "popularidad": 8.4,
+        "versiones": [8.0, 11.0, 17.0],
+        "activo": false
+      }
+    ],
+    "estudiantes": [
+      {
+        "id": 101,
+        "nombre": "Carlos Mendoza",
+        "edad": 22,
+        "cursosInscritos": [201, 202],
+        "calificaciones": {
+          "201": "A",
+          "202": "B"
+        },
+        "desempeno": [
+          {
+            "cursoId": 201,
+            "nota": 88.5,
+            "asistencias": 22,
+            "completado": true
+          },
+          {
+            "cursoId": 202,
+            "nota": 76.4,
+            "asistencias": 20,
+            "completado": false
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "nombre": "Ana Rodríguez",
+        "edad": 25,
+        "cursosInscritos": [203, 204],
+        "calificaciones": {
+          "203": "A",
+          "204": "A"
+        },
+        "desempeno": [
+          {
+            "cursoId": 203,
+            "nota": 92.0,
+            "asistencias": 30,
+            "completado": true
+          },
+          {
+            "cursoId": 204,
+            "nota": 89.7,
+            "asistencias": 28,
+            "completado": true
+          }
+        ]
+      },
+      {
+        "id": 103,
+        "nombre": "Luis Gómez",
+        "edad": 21,
+        "cursosInscritos": [201, 203],
+        "calificaciones": {
+          "201": "C",
+          "203": "B"
+        },
+        "desempeno": [
+          {
+            "cursoId": 201,
+            "nota": 65.3,
+            "asistencias": 15,
+            "completado": false
+          },
+          {
+            "cursoId": 203,
+            "nota": 82.9,
+            "asistencias": 25,
+            "completado": true
+          }
+        ]
+      }
+    ],
+    "cursos": [
+      {
+        "id": 201,
+        "nombre": "Introducción a JavaScript",
+        "lenguaje": "JavaScript",
+        "duracion": "3 meses",
+        "nivel": "Principiante",
+        "profesor": {
+          "nombre": "Pedro Fernández",
+          "experiencia": "10 años",
+          "habilidades": [
+            {
+              "habilidad": "JavaScript",
+              "nivel": "Avanzado"
+            },
+            {
+              "habilidad": "React",
+              "nivel": "Intermedio"
+            }
+          ]
+        },
+        "recursos": [
+          "Lecturas",
+          "Videos",
+          "Prácticas"
+        ]
+      },
+      {
+        "id": 202,
+        "nombre": "Fundamentos de Python",
+        "lenguaje": "Python",
+        "duracion": "2 meses",
+        "nivel": "Principiante",
+        "profesor": {
+          "nombre": "María López",
+          "experiencia": "8 años",
+          "habilidades": [
+            {
+              "habilidad": "Python",
+              "nivel": "Avanzado"
+            },
+            {
+              "habilidad": "Django",
+              "nivel": "Básico"
+            }
+          ]
+        },
+        "recursos": [
+          "Artículos",
+          "Tutoriales",
+          "Ejercicios"
+        ]
+      },
+      {
+        "id": 203,
+        "nombre": "Desarrollo en Java",
+        "lenguaje": "Java",
+        "duracion": "4 meses",
+        "nivel": "Intermedio",
+        "profesor": {
+          "nombre": "Luis Martínez",
+          "experiencia": "12 años",
+          "habilidades": [
+            {
+              "habilidad": "Java",
+              "nivel": "Avanzado"
+            },
+            {
+              "habilidad": "Spring",
+              "nivel": "Intermedio"
+            }
+          ]
+        },
+        "recursos": [
+          "Manuales",
+          "Proyectos",
+          "Seminarios"
+        ]
+      },
+      {
+        "id": 204,
+        "nombre": "Programación Avanzada en Python",
+        "lenguaje": "Python",
+        "duracion": "3 meses",
+        "nivel": "Avanzado",
+        "profesor": {
+          "nombre": "Ana García",
+          "experiencia": "7 años",
+          "habilidades": [
+            {
+              "habilidad": "Python",
+              "nivel": "Avanzado"
+            },
+            {
+              "habilidad": "Machine Learning",
+              "nivel": "Intermedio"
+            }
+          ]
+        },
+        "recursos": [
+          "Libros",
+          "Workshops",
+          "Proyectos de investigación"
+        ]
+      }
+    ],
+    "extras": [
+      [1, 2, 3, 4, 5],
+      [10.5, 20.0, 30.75],
+      ["JavaScript", "Python", "Java"],
+      [true, false, true]
+    ]
+  }
